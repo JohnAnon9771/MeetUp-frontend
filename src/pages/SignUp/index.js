@@ -1,13 +1,19 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { Form } from '@unform/web';
 import Input from '../../components/Input';
 
+import { signUpRequest } from '../../store/modules/auth/actions';
+
 import logo from '../../assets/logo.svg';
 
 export default function SignUp() {
-  function handleSubmit(data) {}
+  const dispatch = useDispatch();
+  function handleSubmit(data) {
+    dispatch(signUpRequest(data));
+  }
   return (
     <>
       <img src={logo} alt="" />

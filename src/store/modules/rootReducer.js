@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
 
-import meetup from './meetups/reducer';
+import auth from './auth/reducer';
 
-export default combineReducers({ meetup });
+export default combineReducers({ auth });
