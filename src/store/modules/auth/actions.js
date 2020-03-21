@@ -1,13 +1,26 @@
-export function signUpRequest(data) {
+export function signUpRequest(name, email, password) {
   return {
     type: '@auth/SIGN_UP_REQUEST',
-    payload: { data },
+    payload: { name, email, password },
   };
 }
 
-export function signUpSuccess(token, user) {
+export function signInRequest(email, password) {
   return {
-    type: '@auth/SIGN_UP_SUCCESS',
-    payload: { token, user },
+    type: '@auth/SIGN_IN_REQUEST',
+    payload: { email, password },
+  };
+}
+
+export function signInSuccess(user, token) {
+  return {
+    type: '@auth/SIGN_IN_SUCCESS',
+    payload: { user, token },
+  };
+}
+
+export function singUpFailure() {
+  return {
+    type: '@auth/SIGN_UP_FAILURE',
   };
 }

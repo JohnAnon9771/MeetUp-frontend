@@ -12,7 +12,8 @@ import logo from '../../assets/logo.svg';
 export default function SignUp() {
   const dispatch = useDispatch();
   function handleSubmit(data) {
-    dispatch(signUpRequest(data));
+    const { name, email, password } = data;
+    dispatch(signUpRequest(name, email, password));
   }
   return (
     <>
