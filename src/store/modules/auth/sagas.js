@@ -1,17 +1,25 @@
 import { call, put, all, takeLatest } from 'redux-saga/effects';
 import { toast } from 'react-toastify';
-import { singUpFailure, signInSuccess } from './actions';
+import { singUpFailure, signInFailure, signInSuccess } from './actions';
 
 import api from '../../../services/api';
 
 import history from '../../../services/history';
 
 export function* signIn({ payload }) {
-  const { email, password } = payload;
-  const response = yield call(api.post, 'session', { email, password });
+  try {
+    const { email, password } = payload;
+    const response = yield call(api.post, 'session', { email, password });
 
-  const { user, token } = response.data;
-  yield put(signInSuccess(user, token));
+    const { user, token } = response.data;
+    yield put(signInSuccess(user, token));
+    history.push('/dashboard');
+  } catch (error) {
+    yield put(signInFailure());
+    toast.error(
+      'Error! Falha ao logar, tente novamente mais tarde ou verifique suas informações'
+    );
+  }
 }
 
 export function* signUp({ payload }) {

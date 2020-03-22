@@ -24,3 +24,9 @@ export function singUpFailure() {
     type: '@auth/SIGN_UP_FAILURE',
   };
 }
+
+export function signInFailure() {
+  return {
+    type: '@auth/SIGN_IN_FAILURE',
+  };
+}
