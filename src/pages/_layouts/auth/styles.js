@@ -59,4 +59,10 @@ export const Content = styled.div`
     font-size: 16px;
     opacity: 0.8;
   }
+
+  span {
+    color: #f94d6a;
+    text-align: left;
+    padding: 5px;
+  }
 `;
