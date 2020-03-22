@@ -19,6 +19,12 @@ export function signInSuccess(user, token) {
   };
 }
 
+export function signOut() {
+  return {
+    type: '@auth/SIGN_OUT',
+  };
+}
+
 export function singUpFailure() {
   return {
     type: '@auth/SIGN_UP_FAILURE',

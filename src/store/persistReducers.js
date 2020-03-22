@@ -6,7 +6,7 @@ export default redurcers => {
     {
       key: 'root',
       storage,
-      whitelist: ['auth'],
+      whitelist: ['auth', 'user'],
     },
     redurcers
   );
