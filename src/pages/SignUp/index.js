@@ -23,7 +23,7 @@ export default function SignUp() {
           .email('Email inválido! Tente com um email válido')
           .required('Email é obrigátorio'),
         password: Yup.string()
-          .min('Minimo de 6 caracteres', 6)
+          .min(6, 'Minimo de 6 caracteres')
           .required('Senha é obrigátoria'),
       });
       await schema.validate(data, {
@@ -41,6 +41,7 @@ export default function SignUp() {
     const { name, email, password } = data;
     dispatch(signUpRequest(name, email, password));
   }
+
   return (
     <>
       <img src={logo} alt="" />
